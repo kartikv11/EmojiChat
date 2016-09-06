@@ -32,10 +32,12 @@ window.onload = function() {
   document.getElementById('textarea').onkeypress = function(e) {
     if (e.which == 13) {
       e.preventDefault();
-      var chatMessage = this.value;
-      var div = document.getElementById('chat');
-      div.innerHTML = div.innerHTML + chatMessage + "<br/>";
-      this.value = "";
+      if (this.value.length > 0) {
+        var chatMessage = this.value;
+        var div = document.getElementById('chat');
+        div.innerHTML = div.innerHTML + chatMessage + "<br/>";
+        this.value = "";
+      }
     }
   };
 
